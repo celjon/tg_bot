@@ -1,0 +1,38 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  App\Service\Doctrine\RepositoryFactory: ~
+
+  App\Repository\UserRepository:
+    factory: ['@App\Service\Doctrine\RepositoryFactory', 'getRepository']
+    lazy: true
+    arguments:
+      - 'App\Entity\User'
+  App\Repository\MessageRepository:
+    factory: ['@App\Service\Doctrine\RepositoryFactory', 'getRepository']
+    lazy: true
+    arguments:
+      - 'App\Entity\Message'
+  App\Repository\PlanRepository:
+    factory: ['@App\Service\Doctrine\RepositoryFactory', 'getRepository']
+    lazy: true
+    arguments:
+      - 'App\Entity\Plan'
+  App\Repository\ModelRepository:
+    factory: ['@App\Service\Doctrine\RepositoryFactory', 'getRepository']
+    lazy: true
+    arguments:
+      - 'App\Entity\Model'
+  App\Repository\PresentRepository:
+    factory: ['@App\Service\Doctrine\RepositoryFactory', 'getRepository']
+    lazy: true
+    arguments:
+      - 'App\Entity\Present'
+  App\Repository\UserChatRepository:
+    factory: ['@App\Service\Doctrine\RepositoryFactory', 'getRepository']
+    lazy: true
+    arguments:
+      - 'App\Entity\UserChat'

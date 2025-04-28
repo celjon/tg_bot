@@ -1,0 +1,7 @@
+parameters:
+  telegramSettings:
+    token: '%env(TELEGRAM_TOKEN)%'
+    webhookSecretToken: '%env(TELEGRAM_WEBHOOK_SECRET_TOKEN)%'
+    alertsChannelId: -1002179452064
+    botName: '%env(TELEGRAM_BOT_NAME)%'
+    botLanguage: '%env(BOT_LANGUAGE)%'

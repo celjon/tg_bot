@@ -1,0 +1,3 @@
+parameters:
+  queueSettings:
+    workers: '%env(QUEUE_WORKERS)%'

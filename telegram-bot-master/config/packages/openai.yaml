@@ -1,0 +1,3 @@
+parameters:
+  openaiSettings:
+    apiKey: '%env(OPENAI_API_KEY)%'

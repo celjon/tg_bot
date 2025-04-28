@@ -1,0 +1,21 @@
+variables:
+  GIT_STRATEGY: clone
+  BASE_DIR: "/srv/Telegram-bot"
+
+stages:          # List of stages for jobs, and their order of execution
+  - deploy
+
+deploy-job:      # This job runs in the deploy stage.
+  stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
+  tags:
+    - shell-stage
+  only:
+    - master
+  script:
+    - cd $BASE_DIR/code
+    - git pull
+    - cd ..
+    - docker compose exec -w /src/code httpd composer install
+    - docker compose exec -w /src/code httpd php bin/console doctrine:migrations:migrate --no-interaction
+    - docker compose exec -w /src/code httpd php bin/console cache:clear
+    - docker compose restart cycle_1 cycle_2 cycle_3

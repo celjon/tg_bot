@@ -1,0 +1,5 @@
+parameters:
+  bothubSettings:
+    webUrl: '%env(BOTHUB_WEB_URL)%'
+    apiUrl: '%env(BOTHUB_API_URL)%'
+    botSecretKey: '%env(BOTHUB_SECRET_KEY)%'
